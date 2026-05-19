@@ -1,0 +1,97 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id               String   @id @default(uuid())
+  email            String   @unique
+  password         String
+  name             String
+  role             String   // "ADMIN", "CLAIMS_STAFF", "SUPPORT_STAFF", "AUDITOR"
+  avatar           String?
+  active           Boolean  @default(true)
+  twoFactorEnabled Boolean  @default(false)
+  twoFactorSecret  String?
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+}
+
+model InsurerProfile {
+  id                String   @id @default(uuid())
+  companyName       String
+  taxId             String
+  supportEmail      String
+  supportPhone      String
+  address           String
+  logo              String?
+  integrationActive Boolean  @default(true)
+  apiEndpoint       String?
+  apiToken          String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Policy {
+  id                 String   @id @default(uuid())
+  policyNumber       String   @unique
+  holderName         String
+  holderEmail        String
+  planName           String
+  premiumAmount      Float
+  premiumDueDate     String   // YYYY-MM-DD
+  startDate          String   // YYYY-MM-DD
+  endDate            String   // YYYY-MM-DD
+  status             String   // "ACTIVE", "GRACE_PERIOD", "EXPIRED", "SUSPENDED"
+  renewalOffered     Boolean  @default(false)
+  renewalProbability Float    @default(0.85) // AI predictive score (0.00 to 1.00)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model Claim {
+  id              String   @id @default(uuid())
+  claimNumber     String   @unique
+  policyNumber    String
+  memberName      String
+  amountRequested Float
+  amountApproved  Float    @default(0)
+  status          String   // "SUBMITTED", "UNDER_REVIEW", "QUERY_RAISED", "DOCS_PENDING", "APPROVED", "REJECTED", "SETTLED"
+  diagnosis       String
+  serviceDate     String   // YYYY-MM-DD
+  fraudRiskScore  Int      @default(0)   // AI risk score percentage (0-100)
+  urgencyRanking  String   // "LOW", "MEDIUM", "HIGH", "CRITICAL"
+  priorityScore   Int      @default(0)   // AI prioritization score (0-100)
+  documents       String   // Stringified JSON array of documents: [{ id, name, url, status, category, uploadedAt }]
+  comments        String   // Stringified JSON array of comments: [{ author, role, text, date }]
+  timeline        String   // Stringified JSON array of audit changes: [{ status, date, updatedBy, note }]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model AuditLog {
+  id        String   @id @default(uuid())
+  userId    String
+  userName  String
+  userRole  String
+  action    String
+  details   String
+  ipAddress String
+  device    String
+  timestamp DateTime @default(now())
+}
+
+model SessionLog {
+  id         String   @id @default(uuid())
+  userId     String
+  userName   String
+  ipAddress  String
+  device     String
+  location   String
+  active     Boolean  @default(true)
+  lastActive DateTime @default(now())
+}
