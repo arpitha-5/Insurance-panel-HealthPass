@@ -12,12 +12,12 @@ The application is structured as a decoupled monorepo:
 
 ##  Core Features
 
-### 1. 📊 Interactive Executive Dashboard
+### 1. Interactive Executive Dashboard
 *   Real-time aggregation of premium pipeline, active enrollment metrics, and claim queues.
 *   Interactive distribution graphs depicting claim categories, claim values, and AI urgency rankings using Recharts.
 *   Fast-access quick actions panel for claim processing and insurer configuration.
 
-### 2. 📑 Claims Processing & Auditing Center
+### 2. Claims Processing & Auditing Center
 *   A robust, paginated and searchable Claim Registry containing diagnostic codes, requested amounts, and patient timelines.
 *   Interactive Claim Detail Drawer containing:
     *   **AI Priority Ranking** & **Urgency Matrix** (Low / Medium / High / Critical).
@@ -25,24 +25,24 @@ The application is structured as a decoupled monorepo:
     *   Ad-hoc decision tools (Approve, Query, Docs Pending, Reject).
     *   Document attachments viewer and interactive staff discussion board.
 
-### 3. 🧠 Sentinel AI Analytics & Chat Hub
+### 3. Sentinel AI Analytics & Chat Hub
 *   **Real-time AI Chat Assistant**: An interactive chatbot interface that connects to live database endpoints. Allows staff to execute queries such as:
     *   *"List all recent claims"*
     *   *"Show me high risk fraud outliers"*
     *   *"What is our premium collection pipeline?"*
 *   **AI Fraud Analytics Breakdown**: Automatically detects duplicate claims, consecutive file submittals within a 30-day window, and outlier medical invoice padding.
 
-### 4. 🗂️ Policy & Enrollment Registry
+### 4. Policy & Enrollment Registry
 *   Unified panel managing active, expired, suspended, and grace-period member policies.
 *   Includes AI-predicted **renewal probabilities** for proactive customer success outreach.
 
-### 5. ⚙️ Partner Settings & Audit Trails
+### 5. Partner Settings & Audit Trails
 *   Insurer profile management (API keys, support details, logo configurations).
 *   Live security feeds containing session logs and administrative audit trails (`AuditLog` and `SessionLog`).
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Layer | Technology | Key Libraries / Frameworks |
 | :--- | :--- | :--- |
@@ -52,7 +52,7 @@ The application is structured as a decoupled monorepo:
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 Insurance Panel/
@@ -96,7 +96,7 @@ Insurance Panel/
 
 ---
 
-## 🗄️ Database Schema & Models
+##  Database Schema & Models
 
 The SQLite database is managed using the [Prisma Schema](file:///c:/Users/Arpitha Medharametla/Downloads/Projects/Insurance Panel/backend/prisma/schema.prisma):
 
@@ -109,7 +109,7 @@ The SQLite database is managed using the [Prisma Schema](file:///c:/Users/Arpith
 
 ---
 
-## ⚡ Setup & Installation
+##  Setup & Installation
 
 ### Prerequisites
 Make sure you have [Node.js (v18+)](https://nodejs.org/) installed on your machine.
@@ -165,7 +165,7 @@ Make sure you have [Node.js (v18+)](https://nodejs.org/) installed on your machi
 
 ---
 
-## 📡 API Reference Roster
+## API Reference Roster
 
 The backend server registers the following endpoint structure:
 
