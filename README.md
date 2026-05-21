@@ -10,7 +10,7 @@ The application is structured as a decoupled monorepo:
 
 ---
 
-## ⚡ Core Features
+##  Core Features
 
 ### 1. 📊 Interactive Executive Dashboard
 *   Real-time aggregation of premium pipeline, active enrollment metrics, and claim queues.
