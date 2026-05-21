@@ -4,16 +4,6 @@ An Insurance Provider Portal built to seamlessly integrate with the HealthPass e
 
 ---
 
-## 🚀 Architectural Overview
-
-```mermaid
-graph TD
-    A[React Frontend] -->|REST API + JWT| B[Express API Gateway]
-    B -->|Prisma Client| C[SQLite Database]
-    B -->|AI Analytics Engine| D[Fraud Analysis / Chat Engine]
-    B -->|Audit Logging| C
-```
-
 The application is structured as a decoupled monorepo:
 *   **Frontend**: React 19 web application powered by Vite, managed using Zustand for client-side state, styled using Tailwind CSS, and featuring smooth animations using Framer Motion and custom analytics widgets via Recharts.
 *   **Backend**: Node.js API Gateway built with TypeScript and Express.js, utilizing Prisma ORM to interface with a SQLite transactional database.
